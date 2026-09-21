@@ -1,7 +1,8 @@
 class Food:
-    def __init__(self, name, serving_size, calories_per_serving, protein_per_serving, carbs_forprotien, fat_perserving):
+    def __init__(self, name, serving_size, calories_per_serving, protein_per_serving, carbs_per_serving, fat_per_serving):
         self.name = name
         self.serving_size = serving_size
         self.calories_per_serving = calories_per_serving
         self.protein_per_serving = protein_per_serving
-        self.carbs_per_serving = self.carbs_per_serving
+        self.carbs_per_serving = carbs_per_serving
+        self.fat_per_serving = fat_per_serving
