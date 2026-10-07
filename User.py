@@ -13,7 +13,7 @@ class User:
         #also had the book be a dic 
         #since the app will 1st be on the cl
         #will make looking for things faster
-
+        self.next_key = 0
 
     #book = {} 
     #commented out since doing this
@@ -25,9 +25,19 @@ class User:
     #foodEntry used since
     #class function 
     def add_food(self, foodEntry):
-        pass
+        
+        self.book[self.next_key] = foodEntry
+ 
+        print(self.next_key, ":" , foodEntry.food.name)
+
+        self.next_key =  self.next_key + 1
+
+
+
+
+
     #class function 
-    def remove_food(self, key, foodEntry):
+    def remove_food(self, key):
         if key in self.book:
             del self.book[key]
             print(f"Food entry '{key}' removed successfully.")

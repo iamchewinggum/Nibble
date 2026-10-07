@@ -20,9 +20,9 @@ class FoodEntry:
         return macros_calulated
 
     #class functions
-    def print_macros(self):
+    def print_macros(self, food):
         label = ["Calories", "Protein", "Carbs", "Fat"]
-        macros = self.calculate_macros()
+        macros = self.calculate_macros(food)
 
         for label, macros in zip(label, macros):
             print(f"{label}: {macros}")
