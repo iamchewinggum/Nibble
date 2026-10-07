@@ -1,4 +1,6 @@
+#class
 class User:
+    #constuctor 
     def __init__(self, name, age, sex, height, weight, activity):
         self.name = name
         self.age = age
@@ -7,11 +9,24 @@ class User:
         self.weight = weight
         self.activity = activity
 
-    book = {}
+        self.book = {} #each user has thier own book 
+        #also had the book be a dic 
+        #since the app will 1st be on the cl
+        #will make looking for things faster
 
+
+    #book = {} 
+    #commented out since doing this
+    #would would allow all the users to share the 
+    #same book for everyone 
+
+
+    #functions for the users
+    #foodEntry used since
+    #class function 
     def add_food(self, foodEntry):
         pass
-
+    #class function 
     def remove_food(self, key, foodEntry):
         if key in self.book:
             del self.book[key]
@@ -20,7 +35,7 @@ class User:
             print(f"Food entry '{key}' not found.")
         
 
-
+    #class function 
     def edit_food(self, key, foodEntry):
         if key in self.book:
             self.book[key] = foodEntry
@@ -28,8 +43,8 @@ class User:
         else:
             print(f"Food entry '{key}' not found.")
         
-
-  def view_book(self):
+    #class function 
+    def view_book(self):
         if not self.book:
             print("No food entries found.")
         else:
