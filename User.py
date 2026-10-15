@@ -22,7 +22,10 @@ class User:
 
 
     #functions for the users
-    #foodEntry used since
+
+
+
+
     #class function 
     def add_food(self, foodEntry):
         

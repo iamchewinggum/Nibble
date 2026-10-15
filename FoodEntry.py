@@ -7,7 +7,24 @@ class FoodEntry:
         self.meal_type = meal_type
         self.date_ate = date_ate
         self.time_ate = time_ate
-    #class functions 
+
+
+    #class functions
+    
+    def individual_food():
+        pass
+
+
+    def food_combination():
+        pass 
+
+
+    
+
+
+
+
+
     def calculate_macros(self, food):
         list = (food.calories_per_serving, food.protein_per_serving, food.carbs_per_serving, food.fat_per_serving)
 

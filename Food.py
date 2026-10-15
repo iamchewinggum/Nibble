@@ -8,6 +8,8 @@ class Food:
         self.protein_per_serving = protein_per_serving
         self.carbs_per_serving = carbs_per_serving
         self.fat_per_serving = fat_per_serving
+
+        
     #class function 
     def food_info(self):
         info = {
