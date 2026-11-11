@@ -22,3 +22,4 @@ class Food:
         }
         for label, value in info.items():
             print(f"{label}: {value}")
+

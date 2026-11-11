@@ -1,48 +1,20 @@
-#class name 
-class FoodEntry: 
-    #constuctor 
-    def __init__(self, food, amount_ate, meal_type, date_ate, time_ate):
+class FoodEntry:
+    def __init__(self, food, amount_ate):
         self.food = food
         self.amount_ate = amount_ate
-        self.meal_type = meal_type
-        self.date_ate = date_ate
-        self.time_ate = time_ate
+
+    def calculate_macros(self):
+        ratio = self.amount_ate / self.food.serving_size
+        return {
+            "calories": ratio * self.food.calories_per_serving,
+            "protein": ratio * self.food.protein_per_serving,
+            "carbs": ratio * self.food.carbs_per_serving,
+            "fat": ratio * self.food.fat_per_serving,
+        }
+
+    def print_macros(self):
+        for label, value in self.calculate_macros().items():
+            print(f"{label.capitalize()}: {value:.1f}")
 
 
-    #class functions
-    
-    def individual_food():
-        pass
-
-
-    def food_combination():
-        pass 
-
-
-    
-
-
-
-
-
-    def calculate_macros(self, food):
-        list = (food.calories_per_serving, food.protein_per_serving, food.carbs_per_serving, food.fat_per_serving)
-
-        macros_calulated = [] #list to store macros calulated from math
-        
-        for macros in list:
-          
-          macros_calulated.append ((self.amount_ate / food.serving_size) * macros)
-
-        return macros_calulated
-
-    #class functions
-    def print_macros(self, food):
-        label = ["Calories", "Protein", "Carbs", "Fat"]
-        macros = self.calculate_macros(food)
-
-        for label, macros in zip(label, macros):
-            print(f"{label}: {macros}")
-
-
-        
+            

@@ -63,3 +63,4 @@ class User:
         else:
             for key, foodEntry in self.book.items():
                 print(f"Key: {key}, Food: {foodEntry.food.name}, Amount Ate: {foodEntry.amount_ate}, Meal Type: {foodEntry.meal_type}, Date Ate: {foodEntry.date_ate}, Time Ate: {foodEntry.time_ate}")
+                
