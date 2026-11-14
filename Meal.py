@@ -15,3 +15,14 @@ class Meal:
             for key, value in entry.calculate_macros().items():
                 totals[key] += value
         return totals
+
+
+
+    def print_summary(self):
+        totals = self.total_macros()
+        print(f"Meal: {self.name}, Type: {self.meal_type}, "
+              f"Date: {self.date_ate}, Time: {self.time_ate}")
+        for entry in self.entries:
+            print(f"   - {entry.food.name}: {entry.amount_ate}g")
+        print(f"   Calories: {totals['calories']:.1f}, Protein: {totals['protein']:.1f}, "
+              f"Carbs: {totals['carbs']:.1f}, Fat: {totals['fat']:.1f}")

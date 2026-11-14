@@ -27,40 +27,40 @@ class User:
 
 
     #class function 
-    def add_food(self, foodEntry):
+    def add_meal(self, meal):
         
-        self.book[self.next_key] = foodEntry
+        self.book[self.next_key] = meal
  
-        print(self.next_key, ":" , foodEntry.food.name)
+        print(self.next_key, ":" , meal.name)
 
-        self.next_key =  self.next_key + 1
+        self.next_key += 1
 
 
 
 
 
     #class function 
-    def remove_food(self, key):
+    def remove_meal(self, key):
         if key in self.book:
             del self.book[key]
-            print(f"Food entry '{key}' removed successfully.")
+            print(f"Meal '{key}' removed successfully.")
         else:
-            print(f"Food entry '{key}' not found.")
+            print(f"Meal '{key}' not found.")
         
 
     #class function 
-    def edit_food(self, key, foodEntry):
+    def edit_food(self, key, meal):
         if key in self.book:
-            self.book[key] = foodEntry
-            print(f"Food entry '{key}' updated successfully.")
+            self.book[key] = meal
+            print(f"Meal '{key}' updated successfully.")
         else:
-            print(f"Food entry '{key}' not found.")
+            print(f"Meal '{key}' not found.")
         
     #class function 
     def view_book(self):
         if not self.book:
-            print("No food entries found.")
-        else:
-            for key, foodEntry in self.book.items():
-                print(f"Key: {key}, Food: {foodEntry.food.name}, Amount Ate: {foodEntry.amount_ate}, Meal Type: {foodEntry.meal_type}, Date Ate: {foodEntry.date_ate}, Time Ate: {foodEntry.time_ate}")
-                
+            print("No meals found.")
+            return
+        for key, meal in self.book.items():
+            print(f"\nKey: {key}")
+            meal.print_summary()
