@@ -1,9 +1,9 @@
 from datetime import datetime
 
-from Food import Food
-from FoodEntry import FoodEntry
-from Meal import Meal
-from User import User
+from backend.Food import Food
+from backend.FoodEntry import FoodEntry
+from backend.Meal import Meal
+from backend.User import User
 
 
 def get_number(prompt):
