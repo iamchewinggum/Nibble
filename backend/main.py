@@ -1,9 +1,10 @@
 from datetime import datetime
 
-from backend.Food import Food
-from backend.FoodEntry import FoodEntry
-from backend.Meal import Meal
-from backend.User import User
+from db import schema, queries
+from Food import Food
+from FoodEntry import FoodEntry
+from Meal import Meal
+from User import User
 
 
 def get_number(prompt):
@@ -44,20 +45,30 @@ def log_meal(user):
             break
 
     user.add_meal(meal)
+    queries.save_meal(user, meal)
     print("\nLogged!")
     meal.print_summary()
 
 
 # --- program starts here ---
-print("Welcome to Nibble! Let's set up your profile.")
-user = User(
-    input("Name: "),
-    get_number("Age: "),
-    input("Sex: "),
-    get_number("Height (cm): "),
-    get_number("Weight (kg): "),
-    input("Activity level: "),
-)
+schema.create_tables()
+
+name = input("Name: ")
+user = queries.load_user(name)
+
+if user is None:
+    print("New user! Let's set up your profile.")
+    user = User(
+        name,
+        get_number("Age: "),
+        input("Sex: "),
+        get_number("Height (cm): "),
+        get_number("Weight (kg): "),
+        input("Activity level: "),
+    )
+    queries.save_user(user)
+else:
+    print(f"Welcome back, {user.name}!")
 
 while True:
     print("\n1: Log a meal")
